@@ -1,0 +1,48 @@
+<div class="list-container">
+  <h2>Providers</h2>
+  <h4>UnSelected</h4>
+
+  <div class="list-container">
+    <table class="table table-bordered">
+      <tr>
+        <th>SNO</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let item of unselectedProviders">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.phone }}</td>
+        <td><button type="button" class="btn glyphicon glyphicon-ok" (click)="associate(item.id, $event)"></button></td>
+      </tr>
+      <tr *ngIf="unselectedProviders.length == 0">
+        <td colspan="5" align="center">No Records Found</td>
+      </tr>
+    </table>
+<h3>Selected</h3>
+    <table class="table table-bordered">
+      <tr>
+        <th>SNO</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let item of selectedProviders">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.phone }}</td>
+        <td><button type="button" class="btn glyphicon glyphicon-remove" (click)="deassociate(item.id, $event)"></button></td>
+      </tr>
+      <tr *ngIf="selectedProviders.length == 0">
+        <td colspan="5" align="center">No Records Found</td>
+      </tr>
+    </table>
+    
+    <a (click)="reset()" href="javascript:void(0)">Reset Data</a>
+  </div>
+</div>
